@@ -1,6 +1,6 @@
 # DIRdisplayer
 
-When I report on my IT projects I like the person to have a global view of the project architecture. With this in mind, the DIRdisplayer describes the architecture of a file.
+When I report on my IT projects I like the person to have a global view of the project architecture. With this in mind, the DIRdisplayer describes the architecture of a directory.
 
 ## Run
 It is easily launched in the following way:
