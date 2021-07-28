@@ -1,1 +1,1 @@
-# project-architecture-displayer
+# DIRdisplayer
