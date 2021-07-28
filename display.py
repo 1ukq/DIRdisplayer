@@ -1,6 +1,12 @@
 import sys, os
 
-def display(path_to_folder, path_to_file, sign):
+# Init variables
+path_to_folder = None
+path_to_file = 0
+tab = "| "
+
+# Display function display the organisation of the folder <path_to_folder> in the file <path_to_file> with <tab> as symbols
+def display(path_to_folder, path_to_file, tab):
     if(path_to_folder[-1] != "/"):
         path_to_folder += "/"
 
@@ -10,28 +16,25 @@ def display(path_to_folder, path_to_file, sign):
         dir = os.listdir(path_to_folder)
         dir.sort()
         for file in dir:
-            f.write(signs + file + "\n")
-            if(os.path.isdir(path_to_folder + file)):
-                aux(path_to_folder + file + "/", signs + "| ")
+            if(file[0] != "."):
+                f.write(signs + file + "\n")
+                if(os.path.isdir(path_to_folder + file)):
+                    aux(path_to_folder + file + "/", signs + tab)
 
     aux(path_to_folder, "")
     f.close()
 
 # Handle arguments
-path_to_folder = None
-path_to_file = 0
-sign = "| "
-
 nb_arguments = len(sys.argv)
 if(nb_arguments < 2):
-    sys.exit("Usage " + sys.argv[0] + " <path_to_folder> [path_to_file]")
+    sys.exit("Usage: " + sys.argv[0] + " <path_to_folder> [path_to_file] [tab]")
     exit(0)
 else:
     path_to_folder = sys.argv[1]
     if(nb_arguments > 2):
         path_to_file = sys.argv[2]
         if(nb_arguments > 3):
-            sign = sys.argv[3]
+            tab = sys.argv[3]
 
 # Execute display
-display(path_to_folder, path_to_file, sign)
+display(path_to_folder, path_to_file, tab)
